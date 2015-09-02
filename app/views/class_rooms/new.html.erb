@@ -1,14 +1,14 @@
-<!-- <div>
+<div>
   <div>
-    <%= form_for(@classroom) do |f| %>
+    <%= form_for(@class_room) do |f| %>
       <h3><span>Q</span><%= @department.class %></h3>
       <div class="field">
-        <%= f.text_area :key, placeholder: "授業名/教授名の書き方でクラスルームを作ってください入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+        <%= f.text_area :key, placeholder: "授業名/教授名の書き方でクラスルームを作ってください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
       </div>
       <div class="field">
         <%= f.text_area :detail, placeholder: "授業の概要を教えてください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
       </div>
-      <%= f.submit "回答する", class:"btn btn-primary withripple"%>
+      <%= f.submit "作成する", class:"btn btn-primary withripple"%>
     <% end %>
   </div>
-</div> -->
+</div>

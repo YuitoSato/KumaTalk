@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :users, only: [:show, :edit, :update]
   resources :class_rooms, only: [:new, :create]
+  get '/search' => 'class_rooms#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
