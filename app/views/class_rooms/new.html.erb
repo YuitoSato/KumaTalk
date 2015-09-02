@@ -1,12 +1,14 @@
-<div>
+<!-- <div>
   <div>
-    <%= form_for(@answer) do |f| %>
-      <h3><span>Q</span><%= @question.text %></h3>
-      <div class="form-group">
-        <%= f.text_area :text, placeholder: "回答を入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+    <%= form_for(@classroom) do |f| %>
+      <h3><span>Q</span><%= @department.class %></h3>
+      <div class="field">
+        <%= f.text_area :key, placeholder: "授業名/教授名の書き方でクラスルームを作ってください入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
       </div>
-      <%= f.hidden_field :question_id %>
+      <div class="field">
+        <%= f.text_area :detail, placeholder: "授業の概要を教えてください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+      </div>
       <%= f.submit "回答する", class:"btn btn-primary withripple"%>
     <% end %>
   </div>
-</div>
+</div> -->

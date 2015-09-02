@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, authentication_keys: [:email, :department_key]
 
   belongs_to :department
+  has_many :class_rooms, through: :departments, source: :class_room
+  # has_and_belongs_to_many :class_rooms
+  has_many :class_rooms, through: :users_classes
+  #ユーザーがとっている授業を取り出したいときはjoinメソッドをつかう
+  #UsersClass.joins(:class_rooms)してuser.class_rooms
+  has_many :users_classes
   before_validation :department_key_to_id, if: :has_department_key?
   has_attached_file :avatar, styles: {medium: "300*300>", thumb: "100*100>"}
   validates_attachment_content_type :avatar, content_type: %w(image/jpeg image/jpg image/png)
