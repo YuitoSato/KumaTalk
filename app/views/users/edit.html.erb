@@ -1,0 +1,13 @@
+<%= form_for current_user do |f| %>
+  <h2>登録情報</h2>
+    <div class="field">
+    <%= f.text_field :nickname, placeholder: 'ニックネーム' %>
+    </div>
+    <br />
+   <h2>プロフィール画像</h2>
+   <div class="field">
+    <%= f.file_field :avatar, placeholder: '画像アップロード' %></div>
+    <div class="actions">
+    <%= f.submit "Edit" %>
+  </div>
+<% end %>

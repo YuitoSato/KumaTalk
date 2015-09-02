@@ -1,0 +1,6 @@
+<%= render partial: 'common/header' %>
+<% unless current_user.full_profile? %>
+  <h2>まずは、名前とプロフィール画像を設定しましょう！</h2>
+  <p>「くまトーーク！！」は授業ごとに区切られたチャットルームで自由にお話できるサービスです！</p>
+<% else %>
+<% end %>
