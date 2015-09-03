@@ -1,0 +1,9 @@
+  <h2><%= @class_room.name %></h2><br />
+  <p><%= @class_room.detail %></p>
+
+  <p>
+  <%= link_to "この授業をマイクラスチャットルームに登録して、チャットルームに入る", "/register/#{@class_room.id}" %>
+  </p>
+  <p>
+  <%= link_to "自分が取ってる授業とは違ったのでホームに戻る", root_path %>
+  </p>

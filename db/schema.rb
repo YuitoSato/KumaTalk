@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902070924) do
+ActiveRecord::Schema.define(version: 20150903035225) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.string   "text",          limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "class_rooms", force: :cascade do |t|
-    t.string   "key",           limit: 255
+    t.string   "name",          limit: 255
     t.string   "detail",        limit: 255
     t.integer  "department_id", limit: 4
     t.datetime "created_at",                null: false

@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, authentication_keys: [:email, :department_key]
 
   belongs_to :department
-  has_many :class_rooms, through: :departments, source: :class_room
+  # has_many :class_rooms, through: :departments, source: :class_room
   # has_and_belongs_to_many :class_rooms
   has_many :class_rooms, through: :users_classes
+  has_many :chats
   #ユーザーがとっている授業を取り出したいときはjoinメソッドをつかう
   #UsersClass.joins(:class_rooms)してuser.class_rooms
   has_many :users_classes

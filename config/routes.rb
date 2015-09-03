@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "top#index"
   resources :users, only: [:show, :edit, :update]
-  resources :class_rooms, only: [:new, :create]
+  resources :class_rooms, only: [:new, :create, :show]
+  resources :chats, only: [:create]
   get '/search' => 'class_rooms#search'
+  get '/entry/:id' => 'class_rooms#entry'
+  get '/register/:id' => 'class_rooms#register'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

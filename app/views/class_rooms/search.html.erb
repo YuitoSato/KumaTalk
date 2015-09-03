@@ -4,4 +4,13 @@
 </form>
 <% end %>
 
+<h2>検索結果</h2>
+  <% @class_rooms.each do |class_room| %>
+    <li>
+      <%= link_to "#{class_room.name}", "/entry/#{class_room.id}" %>
+    </li>
+    <!-- /:idとなっているルーティングはpathのルーティングができない。 -->
+  <% end %>
+
+
 

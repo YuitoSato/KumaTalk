@@ -5,5 +5,10 @@
 <% else %>
   <%= link_to 'クラスチャットルームを検索する', '/search' %><br />
   <%= link_to 'クラスチャットルームを作る', 'class_rooms/new' %>
-
+  <div>
+  <%= @user.nickname %>さんが取っている授業</div>
+    <% @user.class_rooms.each do |class_room| %>
+    <li><%= link_to "#{class_room.name}", class_room_path(class_room.id) %>
+    </li>
+  <% end %>
 <% end %>
