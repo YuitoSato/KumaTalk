@@ -4,7 +4,6 @@ class CreateChats < ActiveRecord::Migration
       t.integer :user_id
       t.integer :class_room_id
       t.string :text
-
       t.timestamps null: false
     end
   end

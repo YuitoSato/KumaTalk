@@ -5,7 +5,7 @@ class ClassRoomsController < ApplicationController
 
   def create
     @class_room = ClassRoom.create(create_params)
-    UsersClass.first_or_create(user_id: current_user.id, class_room_id: @class_room.id)
+    UsersClass.create(user_id: current_user.id, class_room_id: @class_room.id)
   end
 
   def search

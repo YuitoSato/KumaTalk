@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :users, only: [:show, :edit, :update]
   resources :class_rooms, only: [:new, :create, :show]
-  resources :chats, only: [:create]
+  resources :chats, only: [:create, :destroy]
+  delete 'destroy' => 'users_classes#destroy'
   get '/search' => 'class_rooms#search'
   get '/entry/:id' => 'class_rooms#entry'
   get '/register/:id' => 'class_rooms#register'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

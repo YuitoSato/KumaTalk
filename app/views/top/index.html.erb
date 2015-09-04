@@ -9,6 +9,12 @@
   <%= @user.nickname %>さんが取っている授業</div>
     <% @user.class_rooms.each do |class_room| %>
     <li><%= link_to "#{class_room.name}", class_room_path(class_room.id) %>
+  <%= form_tag('/destroy', method: :delete, controller: :users_classes, :id => "class_room.id") do %>
+        <%= hidden_field_tag(:class_room_id, class_room.id) %>
+    <%= submit_tag("削除する") %>
+  <% end %>
     </li>
   <% end %>
 <% end %>
+
+<!--  <#%= link_to "削除", :controller => "users_classes", :action => "destroy", hidden_field_tag(:class_room.id, class_room.id) %> -->
