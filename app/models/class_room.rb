@@ -7,4 +7,6 @@ class ClassRoom < ActiveRecord::Base
   #ユーザーがとっている授業を取り出したいときはjoinメソッドをつかう
   #UsersClass.joins(:class_rooms)してuser.class_rooms
   has_many :users_classes
+
+  validates_presence_of :name, :department_id
 end

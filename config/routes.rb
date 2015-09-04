@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :users, only: [:show, :edit, :update]
   resources :class_rooms, only: [:new, :create, :show]
-  resources :chats, only: [:create, :destroy]
+  resources :chats, only: [:create]
+  delete 'destroy_chat/:id' => 'chats#destroy_chat'
   delete 'destroy' => 'users_classes#destroy'
   get '/search' => 'class_rooms#search'
   get '/entry/:id' => 'class_rooms#entry'

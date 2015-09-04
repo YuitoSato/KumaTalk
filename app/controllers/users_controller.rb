@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    if current_user.id == params[:id].to_i
+      @user = User.find(params[:id])
+    else
+      redirect_to :root
+    end
+#notificationでリダイレクトで飛べなかったときの処理を書こう
   end
 
   def edit

@@ -1,4 +1,10 @@
 <% @chats.each do |chat| %>
   <%= chat.user.nickname %><br/>
   「<%= chat.text %>」<br/>
+  <% if user_signed_in? && current_user.id == chat.user_id %>
+  <li>
+    <%= link_to '削除', "/destroy_chat/#{chat.id}", :controller => "chats", method: :delete %>
+  </li>
+  <% else %>
+  <% end %>
 <% end %>
