@@ -2,6 +2,13 @@
   <h2><%= @class_room.name %>のクラスチャットルーム</h2>
 </div>
 <div>
+ <p>〜  <%= @class_room.detail %>  〜</p>
+</div>
+<div>
+  <%= link_to 'クラス情報を編集する', edit_class_room_path(@class_room) %>
+</div>
+
+<div>
   <%= form_for(@chat) do |f| %>
     <%= f.text_field :text, placeholder: "何か言ってみましょう" %>
       <%= f.submit "発言する" %>

@@ -1,0 +1,10 @@
+<%= form_for(@class_room) do |f| %>
+      <h3><span>Q</span><%= @class_room.name %></h3>
+      <div class="field">
+        <%= f.text_area :name, placeholder: "授業名/教授名の書き方でクラスルームの名前を変更してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+      </div>
+      <div class="field">
+        <%= f.text_area :detail, placeholder: "授業の概要を変更してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+      </div>
+      <%= f.submit "変更する", class:"btn btn-primary withripple"%>
+    <% end %>

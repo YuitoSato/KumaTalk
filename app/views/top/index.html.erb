@@ -1,20 +1,40 @@
 <%= render partial: 'common/header' %>
-<% unless current_user.full_profile? %>
-  <h2>まずは、名前とプロフィール画像を設定しましょう！</h2>
-  <p>「くまトーーク！！」は授業ごとに区切られたチャットルームで自由にお話できるサービスです！</p>
-<% else %>
-  <%= link_to 'クラスチャットルームを検索する', '/search' %><br />
-  <%= link_to 'クラスチャットルームを作る', 'class_rooms/new' %>
-  <div>
-  <%= @user.nickname %>さんが取っている授業</div>
-    <% @user.class_rooms.each do |class_room| %>
-    <li><%= link_to "#{class_room.name}", class_room_path(class_room.id) %>
-  <%= form_tag('/destroy', method: :delete, controller: :users_classes, :id => "class_room.id") do %>
-        <%= hidden_field_tag(:class_room_id, class_room.id) %>
-    <%= submit_tag("削除する") %>
-  <% end %>
-    </li>
-  <% end %>
-<% end %>
 
-<!--  <#%= link_to "削除", :controller => "users_classes", :action => "destroy", hidden_field_tag(:class_room.id, class_room.id) %> -->
+<body>
+  <% unless current_user.full_profile? %>
+    <h2>まずは、名前とプロフィール画像を設定しましょう！</h2>
+    <p>「くまトーーク！！」は授業ごとに区切られたチャットルームで自由にお話できるサービスです！</p>
+  <% else %>
+  <div class="row">
+      <div class="col-sm-12">
+        <div class="search_box">
+          <%= link_to 'クラスチャットルームを検索する', '/search', {class: 'btn btn-lg btn-success' } %></div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div class ="create_box">
+          <%= link_to 'クラスチャットルームを作成する', 'class_rooms/new',  {class: 'btn btn-lg btn-info' } %>
+        </div>
+      </div>
+
+  <div class="clearfix">
+    <div class="main_content">
+      <article>
+        <h4>-<%= @user.nickname %>さんが登録しているクラスチャットルーム-</h4>
+          <div class="btn-group-vertical">
+          <% @user.class_rooms.each do |class_room| %>
+              <li class="btn btn-default"><%= link_to "#{class_room.name}", class_room_path(class_room.id) %>
+                <%= form_tag('/destroy', method: :delete, controller: :users_classes, :id => "class_room.id") do %>
+                <%= hidden_field_tag(:class_room_id, class_room.id) %>
+                <%= submit_tag("削除する") %>
+                <% end %>
+              </li>
+          <% end %>
+          </div>
+      </article>
+    </div>
+  </div>
+  <% end %>
+</body>
+

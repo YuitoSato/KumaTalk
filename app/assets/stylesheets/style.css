@@ -1,0 +1,63 @@
+.logo {
+  text-align: center;
+  position: relative;
+  top: 50px;
+  font-size: 50px
+}
+
+.explanation {
+  text-align: center;
+  position: rel;
+}
+
+
+.search_box {
+  position: relative;
+  top: 10px;
+  left: 5px;
+}
+
+.create_box {
+  position: absolute;
+  top: 40px;
+  left: 5px;
+}
+
+
+.main_content {
+  max-width: 500px;
+  position :absolute;
+  top: 95px;
+  float: left;
+  padding: 20;
+  position: relative;
+  left: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/*h4 {
+  display: block;
+    font-size: 1.2em;
+    color: #ec5e5f;
+    text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+}
+*/
+
+/*.navbar {
+  background-image: none;
+  background-color: maroon;
+  color: white;
+}
+
+.navbar-default .navbar-brand{
+  color: white;
+}

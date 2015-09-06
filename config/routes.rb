@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "top#index"
   resources :users, only: [:show, :edit, :update]
-  resources :class_rooms, only: [:new, :create, :show]
+  resources :class_rooms, only: [:new, :create, :show, :edit, :update]
   resources :chats, only: [:create]
   delete 'destroy_chat/:id' => 'chats#destroy_chat'
   delete 'destroy' => 'users_classes#destroy'

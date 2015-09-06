@@ -24,8 +24,17 @@ class ClassRoomsController < ApplicationController
 
   def register
     @class_room = ClassRoom.find(params[:id])
-    UsersClass.first_or_create(user_id: current_user.id, class_room_id: @class_room.id)
+    UsersClass.where(user_id: current_user.id, class_room_id: @class_room.id).first_or_create
     redirect_to :action => "show", :id => @class_room.id
+  end
+
+  def edit
+    @class_room = ClassRoom.find(id_params[:id])
+  end
+
+  def update
+    @class_room = ClassRoom.find(id_params[:id])
+    @class_room.update(update_params)
   end
 
   private
@@ -33,9 +42,12 @@ class ClassRoomsController < ApplicationController
     params.require(:class_room).permit(:name, :detail).merge(department_id: current_user.department_id)
   end
 
-  private
   def search_params
     params.permit(:keyword)
+  end
+
+  def update_params
+    params.require(:class_room).permit(:name, :detail)
   end
 
   def id_params
